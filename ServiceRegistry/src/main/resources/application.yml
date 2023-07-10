@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: ServiceRegistry # Name of the application
+server:
+  port: 8761         # Port on which the application will run
+
+eureka:
+  instance:
+    hostname: localhost # Hostname of the application
+  client:
+    fetch-registry: false # Fetch the registry or not
+    register-with-eureka: false # Register with the registry or not
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/    # URL of the Eureka server

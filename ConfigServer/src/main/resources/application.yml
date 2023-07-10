@@ -1,0 +1,6 @@
+server:
+  port: 8088
+spring:
+  profiles:
+    active: native # native profile is used to read from local file system
+
