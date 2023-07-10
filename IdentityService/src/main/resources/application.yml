@@ -3,9 +3,31 @@ spring:
     name: identity-service
   config:
     import: "optional:configserver:http://localhost:8088"
+  #datasource is used to connect to database by giving database details
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/identity
+    username: postgres
+    password: root
+  #jpa is used to set the properties of hibernate
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+        hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
 
+#management tracing is used to trace the request and response
 management:
   tracing:
     sampling:
       probability: 1.0
+
+#logging is used to log the sql queries and hibernate queries
+logging:
+  level:
+    sql: debug
+    org.hibernate.type: trace
 
